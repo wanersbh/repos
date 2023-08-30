@@ -1,4 +1,4 @@
-import styled, {keyframes, css } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 export const Container = styled.div`
     max-width: 700px;
@@ -28,7 +28,7 @@ export const Form = styled.form`
 
     input{
         flex: 1;
-        border: 1px solid #DDD;
+        border: 1px solid ${props => (props.error ? '#FF0000' : '#DDD')};
         padding: 10px 15px;
         border-radius: 4px;
         font-size: 17px;
@@ -44,6 +44,48 @@ const animate = keyframes`
   to{
     transform: rotate(360deg) ;
   }
+`;
+
+export const List = styled.ul`
+    list-style: none;
+    margin-top: 20px;
+
+    span{
+        display: flex;
+    }
+
+    li{
+        padding: 15px 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        
+        & + li{
+            border-top: 1px solid #DDD ;
+        }
+
+        a{
+            color: #0d2636;
+            text-decoration: none;
+        }
+    }
+`;
+
+export const DeleteButton = styled.button.attrs({
+    type: 'button'
+})`
+    background: transparent;
+    color: #0d2636;
+    border: 0;
+    margin-right: 8px;
+    outline: 0;
+    border-radius: 4px;
+`;
+
+export const ErrorMsg = styled.p`
+    color: #FF0000;
+    margin-top: 4px;
 `;
 
 export const SubmitButton = styled.button.attrs(props => ({
@@ -64,7 +106,7 @@ export const SubmitButton = styled.button.attrs(props => ({
         opacity: 0.5;
     }
 
-    ${props => props.loading && 
+    ${props => props.loading &&
         css`
             svg{
                 animation: ${animate} 2s linear infinite;
@@ -72,4 +114,6 @@ export const SubmitButton = styled.button.attrs(props => ({
         `
     }
 `;
+
+
 
