@@ -112,3 +112,52 @@ export const IssuesList = styled.ul`
 
     
 `;
+
+export const PageActions = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    button{
+        outline: 0;
+        border: 0;
+        background: #222;
+        color: #FFF;
+        padding: 5px 10px;
+        border-radius: 4px;
+
+        &:disabled{
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+    }
+
+    span{
+        font-size: 16px;
+        font-weight: bold;
+    }
+`;
+
+export const FilterButtons = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
+
+    button{
+        border: 0;
+        outline: 0;
+        border-radius: 4px;
+        width: 70px;
+        padding: 8px 0;
+        background-color: #222;
+        color: #FFF;
+        font-weight: bold;
+
+        &:nth-child(${props => props.active + 1 }){
+            background: #0071db;
+            color: #FFF;
+        }
+    }
+`;
